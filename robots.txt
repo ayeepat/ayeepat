@@ -1,0 +1,31 @@
+# ayeepat — AI × Design
+# All crawlers welcome, including AI crawlers.
+
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://ayeepat.vercel.app/sitemap.xml
+
+# AI-readable site summary: https://ayeepat.vercel.app/llms.txt
+# Full AI-readable profile:  https://ayeepat.vercel.app/llms-full.txt

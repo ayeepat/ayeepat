@@ -1,0 +1,26 @@
+# ayeepat
+
+> Independent AI builder and designer. Builds real, useful things with AI agents, automation, AI image generation and bold design — from idea to shipped, end to end. Currently available for new projects.
+
+ayeepat works at the intersection of AI and design: agents that do real work, automations that delete boring tasks, and generated visuals that don't look generated. Every product is designed and built solo — idea, design, code, deploy.
+
+## Projects
+
+- [Simplex Capital](https://simplex-cap.com): Flagship project. Full corporate web presence for an international tech fund — strategy, design system, copy direction and build, end to end.
+- [FluentCode](https://fluentcode.vercel.app): Free platform for learning multiple coding languages — pick a language, start typing, get fluent. No paywalls.
+- [VibedGallery](https://vibedgallery.com): Curated gallery showcasing websites and SaaS products — where good interfaces go to get noticed.
+
+## Skills
+
+- Core: AI Agents, Automation, AI Image Generation, Design
+- Also: Prompt Engineering, LLM Integrations, Workflow Orchestration, Web & Product Design, Generative Art Pipelines, Rapid Prototyping, AI Tooling & APIs
+
+## Contact
+
+- Telegram (fastest): https://t.me/ayeepatt (@ayeepatt)
+- Email: ayeepattt@gmail.com
+- Discord: @ayeepatt
+
+## Optional
+
+- [Full profile](https://ayeepat.vercel.app/llms-full.txt): Extended bio, experience timeline, education and project details.
