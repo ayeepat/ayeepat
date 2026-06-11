@@ -152,7 +152,7 @@ body{
 body.no-touch, body.no-touch a, body.no-touch button{cursor:none}
 img,svg{display:block}
 a{color:inherit;text-decoration:none}
-button{font-family:inherit;background:none;border:none;color:inherit}
+button{font:inherit;background:none;border:none;color:inherit}
 
 /* grain overlay */
 body::after{
@@ -223,11 +223,11 @@ body::after{
 }
 .nav-cta:hover{transform:translate(-2px,-2px) rotate(-2deg);box-shadow:4px 4px 0 var(--ink);background:var(--blue)}
 .burger{display:none;width:46px;height:46px;border:var(--border);border-radius:50%;background:var(--yellow);position:relative;z-index:1003}
-.burger i,.burger i::before,.burger i::after{content:"";position:absolute;left:12px;width:20px;height:2.6px;background:var(--ink);border-radius:2px;transition:transform .35s var(--ease),top .35s var(--ease),opacity .2s}
-.burger i{top:21px}
+.burger i,.burger i::before,.burger i::after{content:"";position:absolute;width:20px;height:2.6px;background:var(--ink);border-radius:2px;transition:transform .35s var(--ease),top .35s var(--ease),opacity .2s}
+.burger i{left:50%;top:50%;transform:translate(-50%,-50%)}
 .burger i::before{left:0;top:-7px}
 .burger i::after{left:0;top:7px}
-.burger.open i{transform:rotate(45deg)}
+.burger.open i{transform:translate(-50%,-50%) rotate(45deg)}
 .burger.open i::before{top:0;transform:rotate(-90deg)}
 .burger.open i::after{top:0;opacity:0}
 
@@ -235,10 +235,10 @@ body::after{
 .mobile-menu{
   position:fixed;inset:0;z-index:1002;background:var(--yellow);
   display:flex;flex-direction:column;justify-content:center;padding:8vh 10vw;gap:6px;
-  clip-path:circle(0 at calc(100% - 48px) 48px);transition:clip-path .6s var(--ease);
+  clip-path:circle(0 at calc(100% - 48px) 48px);transition:clip-path .6s var(--ease),visibility 0s .6s;
   visibility:hidden;
 }
-.mobile-menu.open{clip-path:circle(150% at calc(100% - 48px) 48px);visibility:visible}
+.mobile-menu.open{clip-path:circle(150% at calc(100% - 48px) 48px);visibility:visible;transition:clip-path .6s var(--ease)}
 .mobile-menu a{
   font-family:var(--display);font-weight:900;font-size:clamp(2rem,9vw,3.4rem);line-height:1.25;
   opacity:0;transform:translateY(30px) rotate(2deg);transition:opacity .4s,transform .5s var(--ease-bounce);
@@ -595,7 +595,7 @@ section.in-view .sec-head:hover .sec-num{transform:rotate(4deg) scale(1.1)}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .c-card{
   border:var(--border);border-radius:26px;padding:34px 30px;display:flex;flex-direction:column;gap:10px;
-  background:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden;
+  background:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden;text-align:left;
   transition:transform .35s var(--ease-bounce),box-shadow .35s;
 }
 .c-card:hover{transform:translate(-5px,-5px);box-shadow:12px 12px 0 var(--ink)}
@@ -710,7 +710,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
     <div class="hero-row">
       <p class="hero-sub">
         I build <strong>real, useful things</strong> with
-        <span class="swap"><span class="swap-list"><span>AI agents</span><span>automation</span><span>image gen</span><span>bold design</span><span>AI agents</span></span></span>.<br>
+        <span class="swap"><span class="swap-list"><span>AI agents.</span><span>automation.</span><span>image gen.</span><span>bold design.</span><span>AI agents.</span></span></span><br>
         From idea to shipped — end to end.
       </p>
       <div class="hero-ctas">
@@ -785,7 +785,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
         <a class="proj-link" href="https://simplex-cap.com" target="_blank" rel="noopener" data-hover>simplex-cap.com <span class="arr">↗</span></a>
       </div>
       <div class="proj-feat-visual">
-        <img class="proj-shot" src="picsimplexcap.png" alt="Simplex Capital — website screenshot" loading="lazy" decoding="async">
+        <img class="proj-shot" src="picsimplexcapformat.webp" alt="Simplex Capital — website screenshot" loading="lazy" decoding="async">
       </div>
     </article>
 
@@ -959,7 +959,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
         <p>The classic. Replies within a day, usually faster.</p>
         <span class="handle">ayeepattt@gmail.com</span>
       </a>
-      <a class="c-card discord reveal" href="#" id="discordCard" data-d="2" data-hover data-cursor="COPY">
+      <button class="c-card discord reveal" type="button" id="discordCard" data-d="2" data-hover data-cursor="COPY">
         <span class="go" aria-hidden="true">→</span>
         <span class="c-ico" aria-hidden="true">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="#141114"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.23.46a13.3 13.3 0 0 1 3.7 1.88A15.1 15.1 0 0 0 6.13 5.34a13.3 13.3 0 0 1 3.7-1.88L9.6 3a19.8 19.8 0 0 0-4.9 1.4A20.4 20.4 0 0 0 1.2 18.16a19.9 19.9 0 0 0 6 3.04l.77-1.05a12.9 12.9 0 0 1-2.03-.98l.5-.37a14.2 14.2 0 0 0 12.12 0l.5.37c-.65.39-1.33.72-2.03.98l.77 1.05a19.9 19.9 0 0 0 6-3.04A20.4 20.4 0 0 0 20.3 4.4ZM8.7 15.5c-1.17 0-2.13-1.08-2.13-2.4S7.5 10.7 8.7 10.7s2.15 1.08 2.13 2.4c0 1.32-.96 2.4-2.13 2.4Zm6.6 0c-1.17 0-2.13-1.08-2.13-2.4s.96-2.4 2.13-2.4 2.15 1.08 2.13 2.4c0 1.32-.95 2.4-2.13 2.4Z"/></svg>
@@ -967,7 +967,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
         <h3>Discord</h3>
         <p>For longer conversations and project briefs.</p>
         <span class="handle">@ayeepatt — click to copy</span>
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -1148,13 +1148,12 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
   if(!reduceMotion){
     const heroWrap=document.querySelector('.hero .wrap');
     const shot=document.querySelector('.proj-shot');
-    let vy=scrollY,skew=0;
-    (function fx(){
+    let vy=scrollY,skew=0,fxRaf=null;
+    function fx(){
       const y=scrollY;
       const target=Math.max(-10,Math.min(10,(y-vy)*.55));
       vy=y;
       skew+=(target-skew)*.14;
-      document.body.style.setProperty('--skew',skew.toFixed(2)+'deg');
       if(heroWrap&&y<innerHeight){
         heroWrap.style.transform=`translateY(${(y*.16).toFixed(1)}px)`;
         heroWrap.style.opacity=Math.max(0,1-y/(innerHeight*.9)).toFixed(3);
@@ -1165,8 +1164,18 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
           shot.style.translate=`0 ${(((r.top+r.height/2)-innerHeight/2)*-.06).toFixed(1)}px`;
         }
       }
-      requestAnimationFrame(fx);
-    })();
+      /* park the loop once the skew has settled — scroll/resize re-arms it */
+      if(target===0&&Math.abs(skew)<.05){
+        skew=0;fxRaf=null;
+        document.body.style.setProperty('--skew','0deg');
+        return;
+      }
+      document.body.style.setProperty('--skew',skew.toFixed(2)+'deg');
+      fxRaf=requestAnimationFrame(fx);
+    }
+    addEventListener('scroll',()=>{if(!fxRaf)fxRaf=requestAnimationFrame(fx);},{passive:true});
+    addEventListener('resize',()=>{if(!fxRaf)fxRaf=requestAnimationFrame(fx);});
+    fx();
   }
 
   /* ---- confetti burst ---- */
@@ -1195,7 +1204,6 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
     const original=handle.textContent;
     let t=null;
     dc.addEventListener('click',e=>{
-      e.preventDefault();
       if(navigator.clipboard) navigator.clipboard.writeText('ayeepatt');
       handle.textContent='copied ✓';
       burst(e.clientX,e.clientY);
