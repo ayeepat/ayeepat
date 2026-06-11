@@ -196,6 +196,8 @@ body::after{
 }
 .nav.scrolled{box-shadow:var(--shadow)}
 .nav.hidden{transform:translate(-50%,-130%)}
+/* keep the burger clickable above the mobile menu overlay */
+.nav.menu-open{z-index:1004}
 .brand{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:-.02em;display:flex;align-items:center;gap:6px}
 .brand b{color:var(--red);display:inline-block;animation:blink 2.4s steps(1) infinite}
 @keyframes blink{0%,70%,100%{opacity:1}80%,90%{opacity:0}}
@@ -744,7 +746,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
         <p class="reveal" data-d="2">I care about the last 5% — the hover state, the easing curve, the copy on the button. That's the part people remember.</p>
       </div>
       <div class="fact-stack" style="position:relative">
-        <span class="sticker" style="top:-30px;right:10px">no fluff ✸</span>
+        <span class="sticker" style="top:-30px;right:10px">true story ✸</span>
         <div class="fact reveal" data-d="1" data-hover>
           <span class="num" data-count="3">0</span>
           <small><b>products shipped</b><br>live, public, in use right now</small>
@@ -783,7 +785,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
         <a class="proj-link" href="https://simplex-cap.com" target="_blank" rel="noopener" data-hover>simplex-cap.com <span class="arr">↗</span></a>
       </div>
       <div class="proj-feat-visual">
-        <img class="proj-shot" src="picsimplexcap.png" alt="Simplex Capital — website screenshot">
+        <img class="proj-shot" src="picsimplexcap.png" alt="Simplex Capital — website screenshot" loading="lazy" decoding="async">
       </div>
     </article>
 
@@ -1060,11 +1062,14 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
     const open=force!==undefined?force:!menu.classList.contains('open');
     menu.classList.toggle('open',open);
     burger.classList.toggle('open',open);
+    nav.classList.toggle('menu-open',open);
     burger.setAttribute('aria-expanded',open);
     document.body.style.overflow=open?'hidden':'';
   }
   burger.addEventListener('click',()=>toggleMenu());
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+  menu.addEventListener('click',e=>{if(e.target===menu)toggleMenu(false);});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open'))toggleMenu(false);});
 
   /* ---- reveals ---- */
   const io=new IntersectionObserver(es=>{
