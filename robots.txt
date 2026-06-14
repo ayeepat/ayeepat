@@ -25,7 +25,7 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://ayeepat.vercel.app/sitemap.xml
+Sitemap: https://ayeepat.com/sitemap.xml
 
-# AI-readable site summary: https://ayeepat.vercel.app/llms.txt
-# Full AI-readable profile:  https://ayeepat.vercel.app/llms-full.txt
+# AI-readable site summary: https://ayeepat.com/llms.txt
+# Full AI-readable profile:  https://ayeepat.com/llms-full.txt

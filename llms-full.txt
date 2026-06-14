@@ -2,7 +2,7 @@
 
 > Independent AI builder and designer. Builds real, useful things with AI agents, automation, AI image generation and bold design — from idea to shipped, end to end. Currently available for new projects.
 
-Site: https://ayeepat.vercel.app/
+Site: https://ayeepat.com/
 Last updated: 2026-06-11
 
 ## Who is ayeepat

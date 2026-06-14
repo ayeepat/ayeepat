@@ -23,4 +23,4 @@ ayeepat works at the intersection of AI and design: agents that do real work, au
 
 ## Optional
 
-- [Full profile](https://ayeepat.vercel.app/llms-full.txt): Extended bio, experience timeline, education and project details.
+- [Full profile](https://ayeepat.com/llms-full.txt): Extended bio, experience timeline, education and project details.
