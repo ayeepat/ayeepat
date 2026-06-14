@@ -284,7 +284,7 @@ section.in-view .sec-head:hover .sec-num{transform:rotate(4deg) scale(1.1)}
 /* ============ HERO ============ */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:140px 0 0;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:drift 16s ease-in-out infinite alternate}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:drift 16s ease-in-out infinite alternate;will-change:transform;transform:translateZ(0)}
 .blob.b1{width:46vw;height:46vw;background:var(--yellow);top:-12%;left:-10%}
 .blob.b2{width:38vw;height:38vw;background:var(--pink);bottom:-8%;right:-8%;animation-delay:-5s;animation-duration:20s}
 .blob.b3{width:26vw;height:26vw;background:var(--blue);top:30%;right:18%;opacity:.28;animation-delay:-10s}
@@ -307,6 +307,11 @@ section.in-view .sec-head:hover .sec-num{transform:rotate(4deg) scale(1.1)}
 .doodle.d-ring{bottom:40%;right:26%;animation:bob 7s ease-in-out -4s infinite}
 @keyframes bob{0%,100%{translate:0 0;rotate:-6deg}50%{translate:0 -16px;rotate:6deg}}
 @media(max-width:760px){.doodle{display:none}}
+/* animating an 80px-blurred element re-rasterizes every frame — too costly on phones.
+   keep the blobs as static colour washes there instead */
+@media(hover:none),(pointer:coarse){.blob{animation:none}}
+/* infinite animations get parked the moment their container scrolls out of view */
+.fx-off,.fx-off *{animation-play-state:paused!important}
 .hero-kicker{
   display:inline-flex;align-items:center;gap:10px;width:fit-content;
   border:var(--border);border-radius:40px;background:var(--paper);
@@ -1045,17 +1050,21 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
   /* ---- scroll progress + nav state ---- */
   const bar=document.getElementById('progressBar');
   const nav=document.getElementById('nav');
-  let lastY=0, ticking=false;
+  let lastY=0, ticking=false, docH=0;
+  /* cache the scrollable height so onScroll never forces a synchronous layout */
+  function measure(){docH=document.documentElement.scrollHeight-innerHeight;}
   function onScroll(){
     const y=scrollY;
-    const h=document.documentElement.scrollHeight-innerHeight;
-    bar.style.transform=`scaleX(${h>0?y/h:0})`;
+    bar.style.transform=`scaleX(${docH>0?y/docH:0})`;
     nav.classList.toggle('scrolled',y>40);
     if(y>500 && y>lastY+6) nav.classList.add('hidden');
     else if(y<lastY-6||y<500) nav.classList.remove('hidden');
     lastY=y; ticking=false;
   }
   addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
+  addEventListener('resize',measure,{passive:true});
+  addEventListener('load',measure);
+  measure();
   onScroll();
 
   /* ---- mobile menu ---- */
@@ -1081,6 +1090,15 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
     });
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ---- pause infinite animations while their container is off-screen ---- */
+  if(!reduceMotion){
+    const pauseIO=new IntersectionObserver(es=>{
+      es.forEach(e=>e.target.classList.toggle('fx-off',!e.isIntersecting));
+    },{rootMargin:'200px 0px'});
+    [document.querySelector('.hero-bg'),...document.querySelectorAll('.marquee,.skills-marquee')]
+      .forEach(el=>el&&pauseIO.observe(el));
+  }
 
   /* section-level observer: heading highlights, timeline, active nav */
   const navLinks=[...document.querySelectorAll('.nav-links a')];
