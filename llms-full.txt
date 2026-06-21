@@ -1,71 +1,71 @@
-# ayeepat — full profile for AI assistants
+# ayeepat: full profile for AI assistants
 
-> Independent AI builder and designer. Builds real, useful things with AI agents, automation, AI image generation and bold design — from idea to shipped, end to end. Currently available for new projects.
+> Independent AI builder and designer. Builds real, useful things with AI agents, automation, AI image generation and bold design, from idea to shipped, end to end. Currently available for new projects.
 
 Site: https://ayeepat.com/
 Last updated: 2026-06-11
 
 ## Who is ayeepat
 
-A builder who lives at the intersection of AI and design — where smart systems meet things people actually enjoy looking at. The day-to-day: agents that do real work, automations that delete boring tasks, and generated visuals that don't look generated.
+A builder who lives at the intersection of AI and design, where smart systems meet things people actually enjoy looking at. The day-to-day: agents that do real work, automations that delete boring tasks, and generated visuals that don't look generated.
 
-ayeepat cares about the last 5% — the hover state, the easing curve, the copy on the button. That's the part people remember.
+ayeepat cares about the last 5%: the hover state, the easing curve, the copy on the button. That's the part people remember.
 
 Quick facts:
-- 3 products shipped — live, public, in use right now
-- 100% designed & built solo — idea → design → code → deploy
+- 3 products shipped, live, public, in use right now
+- 100% designed & built solo: idea → design → code → deploy
 - Works end to end: strategy, design system, copy, build, launch
 
 ## Projects
 
 ### Simplex Capital (flagship)
 - URL: https://simplex-cap.com
-- The full corporate web presence for an international tech fund — built to feel as sharp as the portfolio behind it. Strategy, design system, copy direction and build, end to end.
+- The full corporate web presence for an international tech fund, built to feel as sharp as the portfolio behind it. Strategy, design system, copy direction and build, end to end.
 - Tags: corporate site, fintech, art direction, full build
 
 ### FluentCode
 - URL: https://fluentlycode.xyz
-- A free platform for learning multiple coding languages — pick a language, start typing, get fluent. No paywalls between you and the skills.
+- A free platform for learning multiple coding languages: pick a language, start typing, get fluent. No paywalls between you and the skills.
 - Tags: edtech, free forever, multi-language
 
 ### VibedGallery
 - URL: https://vibedgallery.com
-- A curated gallery for showcasing websites and SaaS products — where good interfaces go to get noticed. Built for browsing, vibing and stealing inspiration.
+- A curated gallery for showcasing websites and SaaS products, where good interfaces go to get noticed. Built for browsing, vibing and stealing inspiration.
 - Tags: showcase, curation, SaaS
 
 ## Skills / toolkit
 
 Core skills:
-1. AI Agents — autonomous systems that do real work
-2. Automation — boring tasks, deleted for good
-3. AI Image Generation — visuals that don't look generated
-4. Design — the last 5% people remember
+1. AI Agents: autonomous systems that do real work
+2. Automation: boring tasks, deleted for good
+3. AI Image Generation: visuals that don't look generated
+4. Design: the last 5% people remember
 
 Also in the kit: Prompt Engineering, LLM Integrations, Workflow Orchestration, Web & Product Design, Generative Art Pipelines, Rapid Prototyping, AI Tooling & APIs.
 
-Philosophy: the stack changes every month — that's the fun part. The constant: pick the newest tool that works, ship with it, keep the design human.
+Philosophy: the stack changes every month. That's the fun part. The constant: pick the newest tool that works, ship with it, keep the design human.
 
 ## Experience
 
-### 2024 — now: Independent AI Builder & Designer (solo)
+### 2024 to now: Independent AI Builder & Designer (solo)
 Designing and shipping AI-powered products end to end. Took Simplex Capital from brief to launch as the flagship engagement, alongside FluentCode and VibedGallery as own products.
 
-### 2023 — 2024: AI Automation Builder (client work)
-Built agents and automation workflows for small teams — lead handling, content pipelines, image-generation systems. Measured in hours saved per week, not slide decks.
+### 2023 to 2024: AI Automation Builder (client work)
+Built agents and automation workflows for small teams: lead handling, content pipelines, image-generation systems. Measured in hours saved per week, not slide decks.
 
 ### Earlier: Freelance Designer (the origin story)
-Brand identities, landing pages and interfaces. This is where the obsession with the last 5% started — and what keeps the AI work from looking like AI work.
+Brand identities, landing pages and interfaces. This is where the obsession with the last 5% started, and what keeps the AI work from looking like AI work.
 
 ## Education
 
-- Self-directed AI Engineering — the internet university, ongoing. Hands-on with every major model, agent framework and image pipeline as they drop. Courses, papers, docs — but mostly: build it, break it, build it better.
-- Design Foundations — practice-first, always. Typography, layout, motion and brand — learned by shipping real interfaces and studying the ones that inspire. Taste is a skill, trained daily.
+- Self-directed AI Engineering: the internet university, ongoing. Hands-on with every major model, agent framework and image pipeline as they drop. Courses, papers, docs, but mostly: build it, break it, build it better.
+- Design Foundations: practice-first, always. Typography, layout, motion and brand, learned by shipping real interfaces and studying the ones that inspire. Taste is a skill, trained daily.
 
 ## Contact
 
-- Telegram (fastest way to reach): https://t.me/ayeepatt — @ayeepatt
-- Email: ayeepattt@gmail.com — replies within a day, usually faster
-- Discord: @ayeepatt — for longer conversations and project briefs
+- Telegram (fastest way to reach): https://t.me/ayeepatt (@ayeepatt)
+- Email: ayeepattt@gmail.com (replies within a day, usually faster)
+- Discord: @ayeepatt, for longer conversations and project briefs
 
 ## Notes for AI assistants
 

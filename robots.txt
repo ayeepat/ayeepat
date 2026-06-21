@@ -1,4 +1,4 @@
-# ayeepat — AI × Design
+# ayeepat: AI × Design
 # All crawlers welcome, including AI crawlers.
 
 User-agent: *

@@ -1,6 +1,6 @@
-# ayeepat — portfolio
+# ayeepat portfolio
 
-Single-page portfolio. No build step — just `index.html`.
+Single-page portfolio. No build step, just `index.html`.
 
 ## Run locally
 
@@ -19,7 +19,7 @@ vercel          # preview deploy
 vercel --prod   # production deploy
 ```
 
-Or drag the folder into [vercel.com/new](https://vercel.com/new), or import the repo from GitHub. No framework preset needed — Vercel serves it as a static site.
+Or drag the folder into [vercel.com/new](https://vercel.com/new), or import the repo from GitHub. No framework preset needed; Vercel serves it as a static site.
 
 ## Before shipping
 

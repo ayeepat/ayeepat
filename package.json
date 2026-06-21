@@ -2,7 +2,7 @@
   "name": "ayeepat-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "ayeepat — AI × Design portfolio. Static single-page site, no build step.",
+  "description": "ayeepat: AI × Design portfolio. Static single-page site, no build step.",
   "scripts": {
     "dev": "serve -l 3000 .",
     "start": "serve -l 3000 ."
