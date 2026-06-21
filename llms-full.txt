@@ -24,7 +24,7 @@ Quick facts:
 - Tags: corporate site, fintech, art direction, full build
 
 ### FluentCode
-- URL: https://fluentcode.vercel.app
+- URL: https://fluentlycode.xyz
 - A free platform for learning multiple coding languages — pick a language, start typing, get fluent. No paywalls between you and the skills.
 - Tags: edtech, free forever, multi-language
 

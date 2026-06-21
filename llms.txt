@@ -7,7 +7,7 @@ ayeepat works at the intersection of AI and design: agents that do real work, au
 ## Projects
 
 - [Simplex Capital](https://simplex-cap.com): Flagship project. Full corporate web presence for an international tech fund — strategy, design system, copy direction and build, end to end.
-- [FluentCode](https://fluentcode.vercel.app): Free platform for learning multiple coding languages — pick a language, start typing, get fluent. No paywalls.
+- [FluentCode](https://fluentlycode.xyz): Free platform for learning multiple coding languages — pick a language, start typing, get fluent. No paywalls.
 - [VibedGallery](https://vibedgallery.com): Curated gallery showcasing websites and SaaS products — where good interfaces go to get noticed.
 
 ## Skills
