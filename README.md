@@ -23,7 +23,7 @@ Or drag the folder into [vercel.com/new](https://vercel.com/new), or import the 
 
 ## Before shipping
 
-- The flagship project card and sitemap use `picsimplexcapformat.webp` (Simplex Capital screenshot), served from the project root next to `index.html`. **There is no `public/` folder in this project: the project root *is* the public web root on Vercel.**
+- The flagship project card and sitemap use `simplexcapnewsite.webp` (Simplex Capital screenshot), served from the project root next to `index.html`. **There is no `public/` folder in this project: the project root *is* the public web root on Vercel.**
 - The canonical domain is set to `https://ayeepat.vercel.app` in `index.html` (meta tags + JSON-LD), `robots.txt`, `sitemap.xml`, `llms.txt` and `llms-full.txt`. If you deploy under a different domain, search-and-replace `ayeepat.vercel.app` across those files.
 
 ## SEO / AI discovery files (all served from root)
