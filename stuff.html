@@ -218,7 +218,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
                 <div class="vid-seek-thumb"></div>
               </div>
               <span class="vid-time">0:00 / 0:00</span>
-              <button class="vid-speed">1×</button>
+              <button class="vid-speed is-active">2×</button>
             </div>
           </div>
         </figure>
@@ -229,7 +229,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
       <div class="stuff-proj-head">
         <div>
           <h2>Lumiere</h2>
-          <p>Another one designed and built end to end. Walkthrough video coming soon — landing page below for now.</p>
+          <p>A site I designed and built end to end. Landing page below, plus a full click-through walkthrough.</p>
         </div>
         <span class="stuff-flag">★ Full build</span>
       </div>
@@ -237,6 +237,29 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
         <figure>
           <figcaption>Landing page</figcaption>
           <img class="stuff-shot" src="lumierelanding.webp" alt="Lumiere landing page screenshot" loading="eager" decoding="async">
+        </figure>
+        <figure>
+          <figcaption>Walkthrough</figcaption>
+          <div class="vid-shell">
+            <video playsinline preload="none" poster="lumierelanding.webp">
+              <source src="lumierewalkthrough.mp4" type="video/mp4">
+            </video>
+            <button class="vid-playbtn" aria-label="Play video">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="#141114"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="vid-bar">
+              <button class="vid-toggle" aria-label="Play">
+                <svg class="ic-play" viewBox="0 0 24 24" width="16" height="16" fill="#141114"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="ic-pause" viewBox="0 0 24 24" width="16" height="16" fill="#141114" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+              </button>
+              <div class="vid-seek">
+                <div class="vid-seek-fill"></div>
+                <div class="vid-seek-thumb"></div>
+              </div>
+              <span class="vid-time">0:00 / 0:00</span>
+              <button class="vid-speed is-active">2×</button>
+            </div>
+          </div>
         </figure>
       </div>
     </article>
@@ -271,6 +294,9 @@ document.querySelectorAll('.vid-shell').forEach(shell=>{
   const thumb=shell.querySelector('.vid-seek-thumb');
   const timeEl=shell.querySelector('.vid-time');
   const speedBtn=shell.querySelector('.vid-speed');
+
+  video.playbackRate=2;
+  video.addEventListener('loadedmetadata',()=>{video.playbackRate=2;});
 
   function setPlayingIcon(playing){
     icPlay.style.display=playing?'none':'';
