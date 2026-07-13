@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 · ayeepat</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFF7EC">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF4D24'/><text x='50' y='68' font-size='52' text-anchor='middle' font-family='Arial Black' fill='%23FFF7EC'>a.</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFF7EC;
+  --ink:#141114;
+  --red:#FF4D24;
+  --blue:#2B45FF;
+  --yellow:#FFD600;
+  --pink:#FF5EC4;
+  --mint:#27D984;
+  --display:'Unbounded',sans-serif;
+  --body:'Space Grotesk',sans-serif;
+  --border:3px solid var(--ink);
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-lg:10px 10px 0 var(--ink);
+  --ease-bounce:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+::selection{background:var(--yellow);color:var(--ink)}
+body{
+  font-family:var(--body);background:var(--paper);color:var(--ink);
+  min-height:100svh;display:flex;flex-direction:column;overflow-x:hidden;line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1100px,calc(100% - 40px));margin:0 auto}
+
+.nav{
+  margin:18px auto 0;width:min(1100px,calc(100% - 32px));
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px 10px 20px;
+  background:rgba(255,247,236,.82);
+  border:var(--border);border-radius:60px;box-shadow:var(--shadow);
+}
+.brand{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:-.02em}
+.brand b{color:var(--red)}
+.nav-back{
+  font-family:var(--display);font-weight:700;font-size:.85rem;
+  padding:9px 18px;border-radius:40px;border:var(--border);background:var(--paper);
+  transition:transform .25s var(--ease-bounce),box-shadow .25s,background .25s;
+}
+.nav-back:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink);background:var(--yellow)}
+
+.err{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 24px;position:relative;
+}
+.err-num{
+  font-family:var(--display);font-weight:900;line-height:.9;letter-spacing:-.03em;
+  font-size:clamp(6rem,22vw,13rem);
+  -webkit-text-stroke:3px var(--ink);color:var(--yellow);
+  transform:rotate(-3deg);
+}
+.err-num i{
+  font-style:normal;display:inline-block;color:var(--red);-webkit-text-stroke:3px var(--ink);
+  transform:rotate(8deg);
+}
+.err h1{
+  font-family:var(--display);font-weight:900;font-size:clamp(1.5rem,4vw,2.3rem);
+  margin-top:10px;letter-spacing:-.01em;
+}
+.err p{margin-top:16px;font-size:1.1rem;max-width:46ch;opacity:.8}
+.err-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:10px;overflow:hidden;
+  font-family:var(--display);font-weight:700;font-size:.95rem;
+  padding:17px 30px;border:var(--border);border-radius:60px;background:var(--ink);color:var(--paper);
+  transition:transform .25s var(--ease-bounce),box-shadow .25s;
+}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow)}
+.btn.ghost{background:var(--paper);color:var(--ink)}
+.btn .arr{transition:transform .3s var(--ease-bounce)}
+.btn:hover .arr{transform:translateX(5px) rotate(-45deg)}
+
+footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding:34px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.foot .brand b{color:var(--yellow)}
+.foot small{opacity:.65}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="/">ayeepat<b>.</b></a>
+  <a class="nav-back" href="/">← Back home</a>
+</nav>
+
+<main class="err">
+  <div class="err-num">4<i>0</i>4</div>
+  <h1>This page didn't ship.</h1>
+  <p>Whatever you were looking for isn't here. Maybe it moved, maybe it never existed, maybe I broke it. Let's get you back on track.</p>
+  <div class="err-ctas">
+    <a class="btn" href="/"><span>Take me home</span><span class="arr">→</span></a>
+    <a class="btn ghost" href="/#contact"><span>Say hi instead</span><span class="arr">→</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="/">ayeepat<b>.</b></a>
+    <small>© <span id="year"></span> ayeepat.</small>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

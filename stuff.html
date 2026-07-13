@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stuff · ayeepat</title>
+<meta name="description" content="A couple of extra builds by ayeepat, shown as full walkthroughs.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFF7EC">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF4D24'/><text x='50' y='68' font-size='52' text-anchor='middle' font-family='Arial Black' fill='%23FFF7EC'>a.</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFF7EC;
+  --ink:#141114;
+  --red:#FF4D24;
+  --blue:#2B45FF;
+  --yellow:#FFD600;
+  --pink:#FF5EC4;
+  --mint:#27D984;
+  --display:'Unbounded',sans-serif;
+  --body:'Space Grotesk',sans-serif;
+  --border:3px solid var(--ink);
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-lg:10px 10px 0 var(--ink);
+  --rad:18px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-bounce:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+::selection{background:var(--yellow);color:var(--ink)}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);overflow-x:hidden;line-height:1.6}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+.wrap{width:min(1100px,calc(100% - 40px));margin:0 auto}
+
+/* ---- nav ---- */
+.nav{
+  position:sticky;top:18px;z-index:1000;margin:0 auto 0;
+  width:min(1100px,calc(100% - 32px));
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px 10px 20px;
+  background:rgba(255,247,236,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:var(--border);border-radius:60px;box-shadow:var(--shadow);
+}
+.brand{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:-.02em}
+.brand b{color:var(--red)}
+.nav-back{
+  font-family:var(--display);font-weight:700;font-size:.85rem;
+  padding:9px 18px;border-radius:40px;border:var(--border);background:var(--paper);
+  transition:transform .25s var(--ease-bounce),box-shadow .25s,background .25s;
+}
+.nav-back:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink);background:var(--yellow)}
+
+/* ---- hero ---- */
+.stuff-hero{padding:70px 0 50px}
+.stuff-kicker{
+  display:inline-flex;align-items:center;gap:10px;width:fit-content;
+  border:var(--border);border-radius:40px;background:#fff;
+  padding:8px 18px;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:4px 4px 0 var(--ink);margin-bottom:22px;
+}
+.stuff-kicker em{width:9px;height:9px;border-radius:50%;background:var(--mint);font-style:normal}
+.stuff-hero h1{
+  font-family:var(--display);font-weight:900;letter-spacing:-.02em;line-height:1.05;
+  font-size:clamp(2.4rem,7vw,4.4rem);max-width:14ch;
+}
+.stuff-hero h1 mark{background:none;color:inherit;position:relative;z-index:1;white-space:nowrap}
+.stuff-hero h1 mark::after{
+  content:"";position:absolute;left:-4px;right:-4px;bottom:8%;height:34%;z-index:-1;background:var(--yellow);
+}
+.stuff-hero p{margin-top:22px;font-size:1.15rem;max-width:56ch;opacity:.85}
+
+/* ---- project block ---- */
+section.projects{padding:20px 0 110px}
+.stuff-proj{
+  border:var(--border);border-radius:26px;background:#fff;box-shadow:var(--shadow-lg);
+  padding:clamp(26px,4.5vw,50px);margin-bottom:46px;
+  transition:transform .3s var(--ease-bounce),box-shadow .3s;
+}
+.stuff-proj:hover{transform:translate(-4px,-4px);box-shadow:14px 14px 0 var(--ink)}
+.stuff-proj-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.stuff-proj-head h2{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,4vw,2.6rem)}
+.stuff-proj-head p{font-size:1.05rem;max-width:50ch;opacity:.8;margin-top:8px}
+.stuff-flag{
+  flex:none;display:inline-flex;align-items:center;gap:8px;
+  border:2.5px solid var(--ink);color:var(--paper);
+  font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 14px;border-radius:30px;
+}
+.stuff-proj.c-red .stuff-flag{background:var(--red)}
+.stuff-proj.c-blue .stuff-flag{background:var(--blue)}
+.stuff-media{display:flex;flex-direction:column;gap:20px}
+.stuff-media figure{margin:0}
+.stuff-media figcaption{
+  font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  opacity:.6;margin-bottom:10px;
+}
+.stuff-shot,.stuff-video{
+  width:100%;border-radius:14px;border:2.5px solid var(--ink);box-shadow:var(--shadow);
+  background:#1d1a1f;object-fit:cover;
+}
+
+/* ---- footer ---- */
+footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding:34px 0;margin-top:auto}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.foot .brand b{color:var(--yellow)}
+.foot small{opacity:.65}
+
+@media(max-width:640px){
+  .stuff-proj-head{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="/">ayeepat<b>.</b></a>
+  <a class="nav-back" href="/">← Back home</a>
+</nav>
+
+<header class="stuff-hero">
+  <div class="wrap">
+    <span class="stuff-kicker"><em></em>Side builds</span>
+    <h1>A couple more <mark>things</mark> I've made.</h1>
+    <p>Can't share the live links publicly yet, so here's the next best thing: full look at the landing page and a walkthrough of how it works.</p>
+  </div>
+</header>
+
+<section class="projects">
+  <div class="wrap">
+
+    <article class="stuff-proj c-red">
+      <div class="stuff-proj-head">
+        <div>
+          <h2>Claro</h2>
+          <p>A site I designed and built end to end. Landing page below, plus a full click-through walkthrough.</p>
+        </div>
+        <span class="stuff-flag">★ Full build</span>
+      </div>
+      <div class="stuff-media">
+        <figure>
+          <figcaption>Landing page</figcaption>
+          <img class="stuff-shot" src="clarolanding.webp" alt="Claro landing page screenshot" loading="lazy" decoding="async">
+        </figure>
+        <figure>
+          <figcaption>Walkthrough</figcaption>
+          <video class="stuff-video" controls playsinline preload="metadata" poster="clarolanding.webp">
+            <source src="clarowalkthrough.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+    </article>
+
+    <article class="stuff-proj c-blue">
+      <div class="stuff-proj-head">
+        <div>
+          <h2>Lumiere</h2>
+          <p>Another one designed and built end to end. Walkthrough video coming soon — landing page below for now.</p>
+        </div>
+        <span class="stuff-flag">★ Full build</span>
+      </div>
+      <div class="stuff-media">
+        <figure>
+          <figcaption>Landing page</figcaption>
+          <img class="stuff-shot" src="lumierelanding.webp" alt="Lumiere landing page screenshot" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="/">ayeepat<b>.</b></a>
+    <small>© <span id="year"></span> ayeepat.</small>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
