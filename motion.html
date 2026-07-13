@@ -120,8 +120,9 @@ main{flex:1}
 }
 .reel-meta li:first-child{background:var(--yellow)}
 
-.vid-shell{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d1a1f;line-height:0}
-.vid-shell video{width:100%;height:100%;object-fit:cover;cursor:pointer}
+.vid-shell{position:relative;width:100%;overflow:hidden;background:var(--ink);line-height:0}
+.vid-stage{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d1a1f}
+.vid-stage video{width:100%;height:100%;object-fit:contain;cursor:pointer}
 .vid-playbtn{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:76px;height:76px;border-radius:50%;background:var(--red);color:var(--ink);
@@ -133,19 +134,16 @@ main{flex:1}
 .vid-playbtn:hover{transform:translate(-50%,-50%) scale(1.08) rotate(-5deg);background:var(--yellow)}
 .vid-shell.is-active .vid-playbtn{display:none}
 .vid-bar{
-  position:absolute;left:0;right:0;bottom:0;z-index:2;
   display:flex;align-items:center;gap:12px;padding:12px 16px;
   background:var(--ink);color:var(--paper);
-  opacity:0;transform:translateY(100%);transition:opacity .3s var(--ease),transform .3s var(--ease);
 }
-.vid-shell.is-active .vid-bar{opacity:1;transform:none}
-.vid-toggle,.vid-sound{
+.vid-toggle,.vid-sound,.vid-fullscreen{
   flex:none;width:44px;height:44px;border-radius:50%;background:var(--yellow);color:var(--ink);
   border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;
   transition:transform .3s var(--ease-bounce),background .25s;
 }
-.vid-toggle:hover,.vid-sound:hover{transform:scale(1.08);background:var(--red)}
-.vid-toggle svg[hidden],.vid-sound svg[hidden]{display:none}
+.vid-toggle:hover,.vid-sound:hover,.vid-fullscreen:hover{transform:scale(1.08);background:var(--red)}
+.vid-toggle svg[hidden],.vid-sound svg[hidden],.vid-fullscreen svg[hidden]{display:none}
 .vid-seek{
   flex:1;height:12px;border-radius:20px;background:rgba(255,247,236,.25);position:relative;cursor:pointer;
   touch-action:none;
@@ -163,6 +161,13 @@ main{flex:1}
 }
 .vid-speed:hover{transform:rotate(-3deg)}
 .vid-speed.is-active{background:var(--red);border-color:var(--red);color:var(--ink)}
+.vid-shell:fullscreen,.vid-shell:-webkit-full-screen{
+  width:100vw;height:100vh;display:flex;flex-direction:column;background:var(--ink);
+}
+.vid-shell:fullscreen .vid-stage,.vid-shell:-webkit-full-screen .vid-stage{
+  flex:1;min-height:0;aspect-ratio:auto;
+}
+.vid-shell:fullscreen .vid-stage video,.vid-shell:-webkit-full-screen .vid-stage video{object-fit:contain}
 .reel-foot{
   display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:28px;
   padding:18px 20px 20px;border-top:var(--border);background:#fff;
@@ -200,7 +205,7 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
   .reel-meta li:last-child{display:none}
   .vid-playbtn{width:64px;height:64px}
   .vid-bar{gap:7px;padding:8px}
-  .vid-toggle,.vid-sound{width:44px;height:44px}
+  .vid-toggle,.vid-sound,.vid-fullscreen{width:44px;height:44px}
   .vid-time{display:none}
   .vid-speed{min-width:48px;min-height:44px;padding:6px 9px}
   .reel-foot{padding:15px 14px 16px}
@@ -240,13 +245,15 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
         </div>
 
         <div class="vid-shell" id="motionPlayer">
-          <video playsinline preload="metadata" poster="ayeepatmotiondesign-poster.jpg" aria-label="Ayeepat website motion-design reel">
-            <source src="ayeepatmotiondesign.mp4" type="video/mp4">
-            Your browser does not support HTML video.
-          </video>
-          <button class="vid-playbtn" type="button" aria-label="Play the Ayeepat motion-design reel">
-            <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
-          </button>
+          <div class="vid-stage">
+            <video playsinline preload="metadata" poster="ayeepatmotiondesign-poster.jpg" aria-label="Ayeepat website motion-design reel">
+              <source src="ayeepatmotiondesign.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+            <button class="vid-playbtn" type="button" aria-label="Play the Ayeepat motion-design reel">
+              <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            </button>
+          </div>
           <div class="vid-bar">
             <button class="vid-toggle" type="button" aria-label="Play the Ayeepat motion-design reel">
               <svg class="ic-play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
@@ -262,6 +269,10 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
               <svg class="ic-muted" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" hidden><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.6 1.2-1.4 1.4 2.1 2.1-2.1 2.1 1.4 1.4 2.1-2.1 2.1 2.1 1.4-1.4-2.1-2.1 2.1-2.1-1.4-1.4-2.1 2.1-2.1-2.1Z"/></svg>
             </button>
             <button class="vid-speed" type="button" aria-label="Playback speed 1×. Change to 2×">1×</button>
+            <button class="vid-fullscreen" type="button" aria-label="Enter fullscreen" aria-pressed="false">
+              <svg class="ic-expand" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M4 4h7v2H6v5H4V4Zm9 0h7v7h-2V6h-5V4ZM4 13h2v5h5v2H4v-7Zm14 0h2v7h-7v-2h5v-5Z"/></svg>
+              <svg class="ic-compress" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" hidden><path fill="currentColor" d="M9 4h2v7H4V9h5V4Zm4 0h2v5h5v2h-7V4ZM4 13h7v7H9v-5H4v-2Zm9 0h7v2h-5v5h-2v-7Z"/></svg>
+            </button>
           </div>
         </div>
 
@@ -305,6 +316,9 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
   const icSound=shell.querySelector('.ic-sound');
   const icMuted=shell.querySelector('.ic-muted');
   const speedBtn=shell.querySelector('.vid-speed');
+  const fullscreenBtn=shell.querySelector('.vid-fullscreen');
+  const icExpand=shell.querySelector('.ic-expand');
+  const icCompress=shell.querySelector('.ic-compress');
   const reelName='the Ayeepat motion-design reel';
 
   video.defaultPlaybackRate=1;
@@ -347,6 +361,37 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
     speedBtn.textContent=isFast?'2×':'1×';
     speedBtn.classList.toggle('is-active',isFast);
     speedBtn.setAttribute('aria-label','Playback speed '+(isFast?'2×. Change to 1×':'1×. Change to 2×'));
+  }
+
+  function isFullscreen(){
+    return document.fullscreenElement===shell||document.webkitFullscreenElement===shell||video.webkitDisplayingFullscreen===true;
+  }
+
+  function updateFullscreen(){
+    const fullscreen=isFullscreen();
+    icExpand.hidden=fullscreen;
+    icCompress.hidden=!fullscreen;
+    fullscreenBtn.setAttribute('aria-label',fullscreen?'Exit fullscreen':'Enter fullscreen');
+    fullscreenBtn.setAttribute('aria-pressed',String(fullscreen));
+  }
+
+  function toggleFullscreen(){
+    if(document.fullscreenElement||document.webkitFullscreenElement){
+      const exitFullscreen=document.exitFullscreen||document.webkitExitFullscreen;
+      if(exitFullscreen){
+        const result=exitFullscreen.call(document);
+        if(result&&result.catch) result.catch(updateFullscreen);
+      }
+      return;
+    }
+
+    const requestFullscreen=shell.requestFullscreen||shell.webkitRequestFullscreen;
+    if(requestFullscreen){
+      const result=requestFullscreen.call(shell);
+      if(result&&result.catch) result.catch(updateFullscreen);
+    }else if(video.webkitEnterFullscreen){
+      video.webkitEnterFullscreen();
+    }
   }
 
   function playVideo(){
@@ -394,9 +439,15 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
 
   soundBtn.addEventListener('click',function(){ video.muted=!video.muted; });
   speedBtn.addEventListener('click',function(){ video.playbackRate=video.playbackRate===2?1:2;updateSpeed(); });
+  fullscreenBtn.addEventListener('click',toggleFullscreen);
+  document.addEventListener('fullscreenchange',updateFullscreen);
+  document.addEventListener('webkitfullscreenchange',updateFullscreen);
+  video.addEventListener('webkitbeginfullscreen',updateFullscreen);
+  video.addEventListener('webkitendfullscreen',updateFullscreen);
 
   updateSound();
   updateSpeed();
+  updateFullscreen();
   updateProgress();
 })();
 </script>
