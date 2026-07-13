@@ -39,13 +39,15 @@ html{scroll-behavior:smooth}
 body{font-family:var(--body);background:var(--paper);color:var(--ink);overflow-x:hidden;line-height:1.6}
 img,video,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+footer a:focus-visible{outline-color:var(--yellow)}
 
-.wrap{width:min(1100px,calc(100% - 40px));margin:0 auto}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
 
 /* ---- nav ---- */
 .nav{
   position:sticky;top:18px;z-index:1000;margin:0 auto 0;
-  width:min(1100px,calc(100% - 32px));
+  width:min(1180px,calc(100% - 32px));
   display:flex;align-items:center;justify-content:space-between;
   padding:10px 14px 10px 20px;
   background:rgba(255,247,236,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
@@ -60,60 +62,68 @@ a{color:inherit;text-decoration:none}
 }
 .nav-back:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink);background:var(--yellow)}
 
-/* ---- hero ---- */
-.stuff-hero{padding:70px 0 50px}
+/* ---- compact intro ---- */
+.stuff-hero{padding:56px 0 32px}
+.stuff-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.85fr);gap:64px;align-items:end}
+.stuff-kicker{
+  display:flex;align-items:center;gap:10px;margin-bottom:13px;
+  font-family:var(--display);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+}
+.stuff-kicker::before{content:"";width:28px;height:6px;background:var(--red);border:2px solid var(--ink)}
 .stuff-hero h1{
-  font-family:var(--display);font-weight:900;letter-spacing:-.02em;line-height:1.05;
-  font-size:clamp(2.4rem,7vw,4.4rem);max-width:14ch;
+  font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:1.02;
+  font-size:clamp(2.45rem,5.7vw,4.8rem);max-width:13ch;
 }
 .stuff-hero h1 mark{background:none;color:inherit;position:relative;z-index:1;white-space:nowrap}
 .stuff-hero h1 mark::after{
   content:"";position:absolute;left:-4px;right:-4px;bottom:8%;height:34%;z-index:-1;background:var(--yellow);
 }
-.stuff-hero p{margin-top:22px;font-size:1.15rem;max-width:56ch;opacity:.85}
+.stuff-summary p{font-size:1.05rem;max-width:57ch;opacity:.84}
+.stuff-summary strong{font-weight:700;color:var(--ink)}
 
-/* ---- project block ---- */
-section.projects{padding:20px 0 110px}
-.stuff-proj{
-  border:var(--border);border-radius:26px;background:#fff;box-shadow:var(--shadow-lg);
-  padding:clamp(26px,4.5vw,50px);margin-bottom:46px;
-  transition:transform .3s var(--ease-bounce),box-shadow .3s;
+/* ---- project index ---- */
+section.projects{padding:12px 0 76px}
+.project-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  overflow:hidden;background:#fff;border:var(--border);border-radius:18px;box-shadow:var(--shadow-lg);
 }
-.stuff-proj:hover{transform:translate(-4px,-4px);box-shadow:14px 14px 0 var(--ink)}
-.stuff-proj-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
-.stuff-proj-head h2{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,4vw,2.6rem)}
-.stuff-proj-head p{font-size:1.05rem;max-width:50ch;opacity:.8;margin-top:8px}
-.stuff-flag{
-  flex:none;display:inline-flex;align-items:center;gap:8px;
-  border:2.5px solid var(--ink);color:var(--paper);
-  font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:7px 14px;border-radius:30px;
-}
-.stuff-proj.c-red{--accent:var(--red)}
+.stuff-proj{--accent:var(--red);min-width:0;background:#fff;border-top:10px solid var(--accent)}
+.stuff-proj+.stuff-proj{border-left:var(--border)}
 .stuff-proj.c-blue{--accent:var(--blue)}
-.stuff-proj.c-red .stuff-flag{background:var(--red)}
-.stuff-proj.c-blue .stuff-flag{background:var(--blue)}
-.stuff-media{display:flex;flex-direction:column;gap:20px}
+.stuff-proj-head{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:15px 20px 16px;border-bottom:2.5px solid var(--ink);background:var(--paper);
+}
+.stuff-proj-head h2{font-family:var(--display);font-weight:900;font-size:clamp(1.55rem,2.7vw,2.15rem);line-height:1}
+.stuff-flag{
+  flex:none;font-family:var(--display);font-weight:700;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 10px;border:2px solid var(--ink);border-radius:30px;background:#fff;
+}
+.stuff-media{padding:18px 18px 0}
 .stuff-media figure{margin:0}
 .stuff-media figcaption{
-  font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
-  opacity:.6;margin-bottom:10px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px;
+  font-family:var(--display);font-weight:700;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
 }
-.stuff-shot{
-  width:100%;border-radius:14px;border:2.5px solid var(--ink);box-shadow:var(--shadow);
-  background:#1d1a1f;object-fit:cover;
+.stuff-media figcaption span:last-child{font-family:var(--body);font-weight:500;letter-spacing:0;text-transform:none;opacity:.55}
+.stuff-proj-foot{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;padding:16px 20px 20px}
+.stuff-proj-foot p{font-size:.94rem;line-height:1.45;max-width:43ch;opacity:.8}
+.scope-list{display:flex;gap:7px;list-style:none;white-space:nowrap}
+.scope-list li{
+  font-family:var(--display);font-weight:700;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 8px;border:2px solid var(--ink);border-radius:30px;background:var(--paper);
 }
 
 /* ---- custom video player ---- */
 .vid-shell{
-  position:relative;width:100%;border-radius:14px;border:2.5px solid var(--ink);box-shadow:var(--shadow);
+  position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;border:2.5px solid var(--ink);
   overflow:hidden;background:#1d1a1f;line-height:0;
 }
-.vid-shell video{width:100%;display:block}
+.vid-shell video{width:100%;height:100%;display:block;object-fit:cover}
 .vid-playbtn{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:84px;height:84px;border-radius:50%;background:var(--accent,var(--yellow));
-  border:var(--border);box-shadow:var(--shadow);cursor:pointer;
+  width:66px;height:66px;border-radius:50%;background:var(--accent,var(--yellow));
+  border:var(--border);box-shadow:4px 4px 0 var(--ink);cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   transition:transform .3s var(--ease-bounce);
 }
@@ -154,7 +164,7 @@ section.projects{padding:20px 0 110px}
 .vid-speed.is-active{background:var(--accent,var(--yellow));border-color:var(--accent,var(--yellow));color:var(--ink)}
 @media(max-width:640px){
   .vid-bar{gap:8px;padding:10px}
-  .vid-time{font-size:.68rem}
+  .vid-time{display:none}
   .vid-speed{padding:6px 10px}
 }
 
@@ -164,8 +174,27 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
 .foot .brand b{color:var(--yellow)}
 .foot small{opacity:.65}
 
+@media(max-width:880px){
+  .stuff-intro{grid-template-columns:1fr;gap:22px}
+  .project-grid{grid-template-columns:1fr;row-gap:3px;background:var(--ink)}
+  .stuff-proj+.stuff-proj{border-left:0}
+}
 @media(max-width:640px){
-  .stuff-proj-head{flex-direction:column}
+  .wrap{width:min(100% - 28px,1180px)}
+  .nav{top:10px;width:calc(100% - 20px);padding:8px 9px 8px 15px;box-shadow:4px 4px 0 var(--ink)}
+  .nav-back{padding:8px 13px;font-size:.72rem}
+  .stuff-hero{padding:40px 0 24px}
+  .stuff-intro{gap:18px}
+  .stuff-hero h1{font-size:clamp(2.2rem,12vw,3.35rem)}
+  .stuff-hero h1 mark::after{left:0;right:0}
+  .stuff-summary p{font-size:.98rem}
+  section.projects{padding-top:6px;padding-bottom:52px}
+  .project-grid{border-radius:12px;box-shadow:6px 6px 0 var(--ink)}
+  .stuff-proj-head{padding:13px 14px 14px}
+  .stuff-flag{font-size:.55rem}
+  .stuff-media{padding:14px 12px 0}
+  .stuff-proj-foot{grid-template-columns:1fr;gap:12px;padding:14px}
+  .scope-list{flex-wrap:wrap}
 }
 </style>
 </head>
@@ -177,78 +206,37 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
 </nav>
 
 <header class="stuff-hero">
-  <div class="wrap">
-    <h1>A couple more <mark>things</mark> I've made.</h1>
-    <p>Can't share the live links publicly yet, so here's the next best thing: full look at the landing page and a walkthrough of how it works.</p>
+  <div class="wrap stuff-intro">
+    <div>
+      <p class="stuff-kicker">Private work</p>
+      <h1>Two builds, <mark>shown in full.</mark></h1>
+    </div>
+    <div class="stuff-summary">
+      <p>Unfortunately, the owners—the people I made these websites for—were opposed to having their live links on my personal website. I can still show you what I built. <strong>All of the images in both projects were fully AI-generated.</strong></p>
+    </div>
   </div>
 </header>
 
 <section class="projects">
-  <div class="wrap">
-
-    <article class="stuff-proj c-red">
-      <div class="stuff-proj-head">
-        <div>
-          <h2>Claro</h2>
-          <p>A site I designed and built end to end. Landing page below, plus a full click-through walkthrough.</p>
-        </div>
-        <span class="stuff-flag">★ Full build</span>
-      </div>
-      <div class="stuff-media">
-        <figure>
-          <figcaption>Landing page</figcaption>
-          <img class="stuff-shot" src="clarolanding.webp" alt="Claro landing page screenshot" loading="eager" decoding="async">
-        </figure>
-        <figure>
-          <figcaption>Walkthrough</figcaption>
-          <div class="vid-shell">
-            <video playsinline preload="none" poster="clarolanding.webp">
-              <source src="clarowalkthrough.mp4" type="video/mp4">
-            </video>
-            <button class="vid-playbtn" aria-label="Play video">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="#141114"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-            <div class="vid-bar">
-              <button class="vid-toggle" aria-label="Play">
-                <svg class="ic-play" viewBox="0 0 24 24" width="16" height="16" fill="#141114"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="ic-pause" viewBox="0 0 24 24" width="16" height="16" fill="#141114" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-              </button>
-              <div class="vid-seek">
-                <div class="vid-seek-fill"></div>
-                <div class="vid-seek-thumb"></div>
-              </div>
-              <span class="vid-time">0:00 / 0:00</span>
-              <button class="vid-speed is-active">2×</button>
-            </div>
-          </div>
-        </figure>
-      </div>
-    </article>
+  <div class="wrap project-grid">
 
     <article class="stuff-proj c-blue">
       <div class="stuff-proj-head">
-        <div>
-          <h2>Lumiere</h2>
-          <p>A site I designed and built end to end. Landing page below, plus a full click-through walkthrough.</p>
-        </div>
-        <span class="stuff-flag">★ Full build</span>
+        <h2>Lumiere</h2>
+        <span class="stuff-flag">Full build</span>
       </div>
       <div class="stuff-media">
         <figure>
-          <figcaption>Landing page</figcaption>
-          <img class="stuff-shot" src="lumierelanding.webp" alt="Lumiere landing page screenshot" loading="eager" decoding="async">
-        </figure>
-        <figure>
-          <figcaption>Walkthrough</figcaption>
+          <figcaption><span>Landing + walkthrough</span><span>Click to play · 2×</span></figcaption>
           <div class="vid-shell">
-            <video playsinline preload="none" poster="lumierelanding.webp">
+            <video playsinline muted preload="metadata" poster="lumierelanding.webp" aria-label="Lumiere website walkthrough">
               <source src="lumierewalkthrough.mp4" type="video/mp4">
             </video>
-            <button class="vid-playbtn" aria-label="Play video">
+            <button class="vid-playbtn" aria-label="Play Lumiere walkthrough">
               <svg viewBox="0 0 24 24" width="32" height="32" fill="#141114"><path d="M8 5v14l11-7z"/></svg>
             </button>
             <div class="vid-bar">
-              <button class="vid-toggle" aria-label="Play">
+              <button class="vid-toggle" aria-label="Play Lumiere walkthrough">
                 <svg class="ic-play" viewBox="0 0 24 24" width="16" height="16" fill="#141114"><path d="M8 5v14l11-7z"/></svg>
                 <svg class="ic-pause" viewBox="0 0 24 24" width="16" height="16" fill="#141114" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
               </button>
@@ -261,6 +249,52 @@ footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding
             </div>
           </div>
         </figure>
+      </div>
+      <div class="stuff-proj-foot">
+        <p>Appointment-led site for a nail and lash atelier, with services, studio work and booking in one flow.</p>
+        <ul class="scope-list" aria-label="Lumiere project scope">
+          <li>Design</li>
+          <li>Build</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="stuff-proj c-red">
+      <div class="stuff-proj-head">
+        <h2>Claro</h2>
+        <span class="stuff-flag">Full build</span>
+      </div>
+      <div class="stuff-media">
+        <figure>
+          <figcaption><span>Landing + walkthrough</span><span>Click to play · 2×</span></figcaption>
+          <div class="vid-shell">
+            <video playsinline muted preload="metadata" poster="clarolanding.webp" aria-label="Claro website walkthrough">
+              <source src="clarowalkthrough.mp4" type="video/mp4">
+            </video>
+            <button class="vid-playbtn" aria-label="Play Claro walkthrough">
+              <svg viewBox="0 0 24 24" width="32" height="32" fill="#141114"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="vid-bar">
+              <button class="vid-toggle" aria-label="Play Claro walkthrough">
+                <svg class="ic-play" viewBox="0 0 24 24" width="16" height="16" fill="#141114"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="ic-pause" viewBox="0 0 24 24" width="16" height="16" fill="#141114" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+              </button>
+              <div class="vid-seek">
+                <div class="vid-seek-fill"></div>
+                <div class="vid-seek-thumb"></div>
+              </div>
+              <span class="vid-time">0:00 / 0:00</span>
+              <button class="vid-speed is-active">2×</button>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div class="stuff-proj-foot">
+        <p>Quote-led site for a residential and commercial cleaning service, built around trust and a verified checklist.</p>
+        <ul class="scope-list" aria-label="Claro project scope">
+          <li>Design</li>
+          <li>Build</li>
+        </ul>
       </div>
     </article>
 
@@ -294,6 +328,7 @@ document.querySelectorAll('.vid-shell').forEach(shell=>{
   const thumb=shell.querySelector('.vid-seek-thumb');
   const timeEl=shell.querySelector('.vid-time');
   const speedBtn=shell.querySelector('.vid-speed');
+  const walkthroughName=video.getAttribute('aria-label').replace('website ', '');
 
   video.playbackRate=2;
   video.addEventListener('loadedmetadata',()=>{video.playbackRate=2;});
@@ -301,7 +336,7 @@ document.querySelectorAll('.vid-shell').forEach(shell=>{
   function setPlayingIcon(playing){
     icPlay.style.display=playing?'none':'';
     icPause.style.display=playing?'':'none';
-    toggle.setAttribute('aria-label',playing?'Pause':'Play');
+    toggle.setAttribute('aria-label',(playing?'Pause ':'Play ')+walkthroughName);
   }
   function updateProgress(){
     const dur=video.duration||0;
