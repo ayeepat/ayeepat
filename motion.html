@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motion Design · ayeepat</title>
+<meta name="description" content="A fast motion-design study made solely from ayeepat.com—concept, animation and edit by ayeepat.">
+<meta name="author" content="ayeepat">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#FFF7EC">
+<link rel="canonical" href="https://ayeepat.com/motion">
+<meta property="og:type" content="video.other">
+<meta property="og:url" content="https://ayeepat.com/motion">
+<meta property="og:site_name" content="ayeepat: AI × Design">
+<meta property="og:title" content="Motion Design · ayeepat">
+<meta property="og:description" content="One website, translated into a 13-second motion study.">
+<meta property="og:image" content="https://ayeepat.com/ayeepatmotiondesign-poster.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="A frame from ayeepat's motion-design reel">
+<meta property="og:video" content="https://ayeepat.com/ayeepatmotiondesign.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Motion Design · ayeepat">
+<meta name="twitter:description" content="One website, translated into a 13-second motion study.">
+<meta name="twitter:image" content="https://ayeepat.com/ayeepatmotiondesign-poster.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF4D24'/><text x='50' y='68' font-size='52' text-anchor='middle' font-family='Arial Black' fill='%23FFF7EC'>a.</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFF7EC;
+  --ink:#141114;
+  --red:#FF4D24;
+  --blue:#2B45FF;
+  --yellow:#FFD600;
+  --pink:#FF5EC4;
+  --mint:#27D984;
+  --display:'Unbounded',sans-serif;
+  --body:'Space Grotesk',sans-serif;
+  --border:3px solid var(--ink);
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-lg:10px 10px 0 var(--ink);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-bounce:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+::selection{background:var(--yellow);color:var(--ink)}
+body{
+  min-height:100vh;display:flex;flex-direction:column;
+  font-family:var(--body);background:var(--paper);color:var(--ink);overflow-x:hidden;line-height:1.6;
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+a:focus-visible,button:focus-visible,[role="slider"]:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+footer a:focus-visible{outline-color:var(--yellow)}
+
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+
+.nav{
+  position:sticky;top:18px;z-index:1000;margin:0 auto;
+  width:min(1180px,calc(100% - 32px));
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px 10px 20px;
+  background:rgba(255,247,236,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:var(--border);border-radius:60px;box-shadow:var(--shadow);
+}
+.brand{font-family:var(--display);font-weight:900;font-size:1.25rem;letter-spacing:-.02em}
+.brand b{color:var(--red)}
+.nav-back{
+  min-height:44px;display:inline-flex;align-items:center;
+  font-family:var(--display);font-weight:700;font-size:.85rem;
+  padding:8px 18px;border-radius:40px;border:var(--border);background:var(--paper);
+  transition:transform .25s var(--ease-bounce),box-shadow .25s,background .25s;
+}
+.nav-back:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink);background:var(--yellow)}
+
+.motion-hero{padding:58px 0 34px}
+.motion-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(400px,.78fr);gap:64px;align-items:end}
+.motion-kicker{
+  display:flex;align-items:center;gap:10px;margin-bottom:13px;
+  font-family:var(--display);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+}
+.motion-kicker::before{content:"";width:28px;height:6px;background:var(--red);border:2px solid var(--ink)}
+.motion-hero h1{
+  font-family:var(--display);font-weight:900;letter-spacing:-.045em;line-height:.98;
+  font-size:clamp(2.65rem,6vw,5.15rem);max-width:12ch;
+}
+.motion-hero h1 mark{background:none;color:inherit;position:relative;z-index:1;white-space:nowrap}
+.motion-hero h1 mark::after{
+  content:"";position:absolute;left:-5px;right:-5px;bottom:7%;height:31%;z-index:-1;background:var(--yellow);
+}
+.motion-summary p{font-size:1.08rem;max-width:52ch;opacity:.86}
+.motion-summary strong{font-weight:700;color:var(--ink)}
+
+main{flex:1}
+.showcase{padding:10px 0 80px}
+.reel-card{overflow:hidden;background:#fff;border:var(--border);border-radius:18px;box-shadow:var(--shadow-lg)}
+.reel-card::before{content:"";display:block;height:10px;background:var(--red);border-bottom:var(--border)}
+.reel-head{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:14px 18px 15px;background:var(--paper);border-bottom:var(--border);
+}
+.reel-title{font-family:var(--display);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.reel-meta{display:flex;align-items:center;gap:8px;list-style:none}
+.reel-meta li{
+  font-family:var(--display);font-weight:700;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 9px;border:2px solid var(--ink);border-radius:30px;background:#fff;
+}
+.reel-meta li:first-child{background:var(--yellow)}
+
+.vid-shell{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d1a1f;line-height:0}
+.vid-shell video{width:100%;height:100%;object-fit:cover;cursor:pointer}
+.vid-playbtn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:76px;height:76px;border-radius:50%;background:var(--red);color:var(--ink);
+  border:var(--border);box-shadow:5px 5px 0 var(--ink);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s var(--ease-bounce),background .25s;
+}
+.vid-playbtn svg{margin-left:5px}
+.vid-playbtn:hover{transform:translate(-50%,-50%) scale(1.08) rotate(-5deg);background:var(--yellow)}
+.vid-shell.is-active .vid-playbtn{display:none}
+.vid-bar{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;align-items:center;gap:12px;padding:12px 16px;
+  background:var(--ink);color:var(--paper);
+  opacity:0;transform:translateY(100%);transition:opacity .3s var(--ease),transform .3s var(--ease);
+}
+.vid-shell.is-active .vid-bar{opacity:1;transform:none}
+.vid-toggle,.vid-sound{
+  flex:none;width:44px;height:44px;border-radius:50%;background:var(--yellow);color:var(--ink);
+  border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:transform .3s var(--ease-bounce),background .25s;
+}
+.vid-toggle:hover,.vid-sound:hover{transform:scale(1.08);background:var(--red)}
+.vid-toggle svg[hidden],.vid-sound svg[hidden]{display:none}
+.vid-seek{
+  flex:1;height:12px;border-radius:20px;background:rgba(255,247,236,.25);position:relative;cursor:pointer;
+  touch-action:none;
+}
+.vid-seek-fill{position:absolute;inset:0;right:auto;width:0%;border-radius:20px;background:var(--red)}
+.vid-seek-thumb{
+  position:absolute;top:50%;left:0%;width:16px;height:16px;border-radius:50%;
+  background:var(--paper);border:2.5px solid var(--ink);transform:translate(-50%,-50%);pointer-events:none;
+}
+.vid-time{font-family:var(--display);font-weight:700;font-size:.72rem;white-space:nowrap;opacity:.9;flex:none}
+.vid-speed{
+  min-width:54px;min-height:44px;flex:none;font-family:var(--display);font-weight:700;font-size:.72rem;
+  padding:7px 12px;border-radius:30px;border:2px solid var(--paper);background:transparent;color:var(--paper);
+  cursor:pointer;transition:transform .25s var(--ease-bounce),background .25s,color .25s,border-color .25s;
+}
+.vid-speed:hover{transform:rotate(-3deg)}
+.vid-speed.is-active{background:var(--red);border-color:var(--red);color:var(--ink)}
+.reel-foot{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:28px;
+  padding:18px 20px 20px;border-top:var(--border);background:#fff;
+}
+.reel-foot p{max-width:67ch;font-size:.98rem;line-height:1.5;opacity:.82}
+.scope-list{display:flex;gap:7px;list-style:none;white-space:nowrap}
+.scope-list li{
+  font-family:var(--display);font-weight:700;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 8px;border:2px solid var(--ink);border-radius:30px;background:var(--paper);
+}
+
+footer{border-top:var(--border);background:var(--ink);color:var(--paper);padding:34px 0;margin-top:auto}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.foot .brand b{color:var(--yellow)}
+.foot small{opacity:.65}
+
+@media(max-width:820px){
+  .motion-intro{grid-template-columns:1fr;gap:22px}
+  .reel-foot{grid-template-columns:1fr;gap:14px}
+}
+@media(max-width:640px){
+  .wrap{width:min(100% - 28px,1180px)}
+  .nav{top:10px;width:calc(100% - 20px);padding:8px 9px 8px 15px;box-shadow:4px 4px 0 var(--ink)}
+  .nav-back{padding:7px 13px;font-size:.72rem}
+  .motion-hero{padding:42px 0 25px}
+  .motion-intro{gap:18px}
+  .motion-hero h1{font-size:clamp(2.3rem,11.2vw,3.45rem)}
+  .motion-hero h1 mark::after{left:0;right:0}
+  .motion-summary p{font-size:.98rem}
+  .showcase{padding-top:6px;padding-bottom:56px}
+  .reel-card{border-radius:12px;box-shadow:6px 6px 0 var(--ink)}
+  .reel-head{padding:11px 12px 12px;gap:10px}
+  .reel-title{font-size:.61rem}
+  .reel-meta li{font-size:.5rem;padding:4px 7px}
+  .reel-meta li:last-child{display:none}
+  .vid-playbtn{width:64px;height:64px}
+  .vid-bar{gap:7px;padding:8px}
+  .vid-toggle,.vid-sound{width:44px;height:44px}
+  .vid-time{display:none}
+  .vid-speed{min-width:48px;min-height:44px;padding:6px 9px}
+  .reel-foot{padding:15px 14px 16px}
+  .scope-list{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="/">ayeepat<b>.</b></a>
+  <a class="nav-back" href="/">← Back home</a>
+</nav>
+
+<header class="motion-hero">
+  <div class="wrap motion-intro">
+    <div>
+      <p class="motion-kicker">Motion design</p>
+      <h1>A whole site, <mark>set in motion.</mark></h1>
+    </div>
+    <div class="motion-summary">
+      <p><strong>Made solely from ayeepat.com:</strong> its type, colors, layout and tiny interface details. A quick proof that I can turn an existing visual system into a polished motion piece.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="showcase" aria-labelledby="reel-heading">
+    <div class="wrap">
+      <article class="reel-card">
+        <div class="reel-head">
+          <h2 class="reel-title" id="reel-heading">Ayeepat motion study</h2>
+          <ul class="reel-meta" aria-label="Reel details">
+            <li>00:13</li>
+            <li>Website → motion</li>
+          </ul>
+        </div>
+
+        <div class="vid-shell" id="motionPlayer">
+          <video playsinline preload="metadata" poster="ayeepatmotiondesign-poster.jpg" aria-label="Ayeepat website motion-design reel">
+            <source src="ayeepatmotiondesign.mp4" type="video/mp4">
+            Your browser does not support HTML video.
+          </video>
+          <button class="vid-playbtn" type="button" aria-label="Play the Ayeepat motion-design reel">
+            <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="vid-bar">
+            <button class="vid-toggle" type="button" aria-label="Play the Ayeepat motion-design reel">
+              <svg class="ic-play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+              <svg class="ic-pause" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" hidden><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+            </button>
+            <div class="vid-seek" role="slider" tabindex="0" aria-label="Video progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0:00 of 0:00">
+              <div class="vid-seek-fill"></div>
+              <div class="vid-seek-thumb"></div>
+            </div>
+            <span class="vid-time" aria-live="off">0:00 / 0:00</span>
+            <button class="vid-sound" type="button" aria-label="Mute reel">
+              <svg class="ic-sound" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2-3.74v7.48a4.5 4.5 0 0 0 2-3.74Zm-2-8.2v2.06a7 7 0 0 1 0 12.28v2.06a9 9 0 0 0 0-16.4Z"/></svg>
+              <svg class="ic-muted" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" hidden><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4Zm11.6 1.2-1.4 1.4 2.1 2.1-2.1 2.1 1.4 1.4 2.1-2.1 2.1 2.1 1.4-1.4-2.1-2.1 2.1-2.1-1.4-1.4-2.1 2.1-2.1-2.1Z"/></svg>
+            </button>
+            <button class="vid-speed" type="button" aria-label="Playback speed 1×. Change to 2×">1×</button>
+          </div>
+        </div>
+
+        <div class="reel-foot">
+          <p>One source, one fast edit: concept, animation and timing built around the visual language already living on this website.</p>
+          <ul class="scope-list" aria-label="Motion project scope">
+            <li>Concept</li>
+            <li>Motion</li>
+            <li>Edit</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="/">ayeepat<b>.</b></a>
+    <small>© <span id="year"></span> ayeepat.</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  const shell=document.getElementById('motionPlayer');
+  const video=shell.querySelector('video');
+  const playBtn=shell.querySelector('.vid-playbtn');
+  const toggle=shell.querySelector('.vid-toggle');
+  const icPlay=shell.querySelector('.ic-play');
+  const icPause=shell.querySelector('.ic-pause');
+  const seek=shell.querySelector('.vid-seek');
+  const fill=shell.querySelector('.vid-seek-fill');
+  const thumb=shell.querySelector('.vid-seek-thumb');
+  const timeEl=shell.querySelector('.vid-time');
+  const soundBtn=shell.querySelector('.vid-sound');
+  const icSound=shell.querySelector('.ic-sound');
+  const icMuted=shell.querySelector('.ic-muted');
+  const speedBtn=shell.querySelector('.vid-speed');
+  const reelName='the Ayeepat motion-design reel';
+
+  video.defaultPlaybackRate=1;
+  video.playbackRate=1;
+
+  function fmtTime(time){
+    if(!isFinite(time)||time<0) time=0;
+    const minutes=Math.floor(time/60);
+    const seconds=Math.floor(time%60);
+    return minutes+':'+String(seconds).padStart(2,'0');
+  }
+
+  function setPlayingIcon(playing){
+    icPlay.hidden=playing;
+    icPause.hidden=!playing;
+    toggle.setAttribute('aria-label',(playing?'Pause ':'Play ')+reelName);
+  }
+
+  function updateProgress(){
+    const duration=video.duration||0;
+    const percent=duration?(video.currentTime/duration*100):0;
+    const current=fmtTime(video.currentTime);
+    const total=fmtTime(duration);
+    fill.style.width=percent+'%';
+    thumb.style.left=percent+'%';
+    timeEl.textContent=current+' / '+total;
+    seek.setAttribute('aria-valuenow',String(Math.round(percent)));
+    seek.setAttribute('aria-valuetext',current+' of '+total);
+  }
+
+  function updateSound(){
+    const muted=video.muted;
+    icSound.hidden=muted;
+    icMuted.hidden=!muted;
+    soundBtn.setAttribute('aria-label',muted?'Unmute reel':'Mute reel');
+  }
+
+  function updateSpeed(){
+    const isFast=video.playbackRate===2;
+    speedBtn.textContent=isFast?'2×':'1×';
+    speedBtn.classList.toggle('is-active',isFast);
+    speedBtn.setAttribute('aria-label','Playback speed '+(isFast?'2×. Change to 1×':'1×. Change to 2×'));
+  }
+
+  function playVideo(){
+    shell.classList.add('is-active');
+    const result=video.play();
+    if(result) result.catch(function(){ setPlayingIcon(false); });
+  }
+
+  function togglePlayback(){
+    video.paused?playVideo():video.pause();
+  }
+
+  function seekTo(clientX){
+    const bounds=seek.getBoundingClientRect();
+    const percent=Math.min(1,Math.max(0,(clientX-bounds.left)/bounds.width));
+    if(video.duration) video.currentTime=percent*video.duration;
+    updateProgress();
+  }
+
+  playBtn.addEventListener('click',playVideo);
+  toggle.addEventListener('click',togglePlayback);
+  video.addEventListener('click',function(){ if(shell.classList.contains('is-active')) togglePlayback(); });
+  video.addEventListener('play',function(){ shell.classList.add('is-active');setPlayingIcon(true); });
+  video.addEventListener('pause',function(){ setPlayingIcon(false); });
+  video.addEventListener('ended',function(){ setPlayingIcon(false);video.currentTime=0;updateProgress(); });
+  video.addEventListener('timeupdate',updateProgress);
+  video.addEventListener('loadedmetadata',function(){ video.playbackRate=1;updateSpeed();updateProgress(); });
+  video.addEventListener('volumechange',updateSound);
+
+  let dragging=false;
+  seek.addEventListener('pointerdown',function(event){ dragging=true;seek.setPointerCapture(event.pointerId);seekTo(event.clientX); });
+  seek.addEventListener('pointermove',function(event){ if(dragging) seekTo(event.clientX); });
+  seek.addEventListener('pointerup',function(event){ dragging=false;seek.releasePointerCapture(event.pointerId); });
+  seek.addEventListener('pointercancel',function(){ dragging=false; });
+  seek.addEventListener('keydown',function(event){
+    if(!video.duration) return;
+    if(event.key==='ArrowLeft'||event.key==='ArrowDown') video.currentTime=Math.max(0,video.currentTime-5);
+    else if(event.key==='ArrowRight'||event.key==='ArrowUp') video.currentTime=Math.min(video.duration,video.currentTime+5);
+    else if(event.key==='Home') video.currentTime=0;
+    else if(event.key==='End') video.currentTime=video.duration;
+    else return;
+    event.preventDefault();
+    updateProgress();
+  });
+
+  soundBtn.addEventListener('click',function(){ video.muted=!video.muted; });
+  speedBtn.addEventListener('click',function(){ video.playbackRate=video.playbackRate===2?1:2;updateSpeed(); });
+
+  updateSound();
+  updateSpeed();
+  updateProgress();
+})();
+</script>
+</body>
+</html>

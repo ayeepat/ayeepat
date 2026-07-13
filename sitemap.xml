@@ -11,4 +11,14 @@
       <image:title>Simplex Capital website by ayeepat</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://ayeepat.com/motion</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ayeepat.com/ayeepatmotiondesign-poster.jpg</image:loc>
+      <image:title>Ayeepat motion design reel</image:title>
+    </image:image>
+  </url>
 </urlset>
