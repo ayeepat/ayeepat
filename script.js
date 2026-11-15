@@ -34,6 +34,23 @@
   );
   document.querySelectorAll(".reveal").forEach((el) => revealIO.observe(el));
 
+  // Capability cells come in one by one. Cells that enter together (a desktop row)
+  // are staggered; on a phone each one arrives as it scrolls into view.
+  const capIO = new IntersectionObserver(
+    (entries) => {
+      let i = 0;
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.style.setProperty("--i", i++);
+        e.target.classList.add("in");
+        e.target.parentElement.classList.add("in");
+        capIO.unobserve(e.target);
+      });
+    },
+    { threshold: 0.2, rootMargin: "0px 0px -6% 0px" }
+  );
+  document.querySelectorAll(".cap").forEach((el) => capIO.observe(el));
+
   /* ---------- progress bar and nav state ---------- */
   const bar = document.getElementById("progress");
   const nav = document.getElementById("nav");
@@ -116,6 +133,13 @@
     return [(r + m) * 255, (g + m) * 255, (b + m) * 255];
   };
 
+  // Touch-screen glint, in seconds and in fractions of the canvas diagonal
+  const GLINT_EVERY = 5;     // one pass every 5s
+  const GLINT_PASS = 2.4;    // how long a pass takes
+  const GLINT_LEAD = 0.05;   // sharp front edge
+  const GLINT_TAIL = 0.24;   // soft trail behind it
+  const SWELL = fine ? 0.35 : 0.55; // how much a lit dot grows
+
   // One shared pointer. Dots light up only near the cursor and cool down behind it.
   const pointer = { x: -9999, y: -9999 };
   const clearPointer = () => { pointer.x = pointer.y = -9999; };
@@ -168,11 +192,13 @@
       const near = mx > -radius && my > -radius && mx < W + radius && my < H + radius;
       const decay = Math.exp(-dt * 1.5);
 
-      // touch screens: a band of colour crosses corner to corner every few seconds
+      // touch screens: a band of colour crosses corner to corner every few seconds.
+      // The travel range hugs the shape (it sits roughly between 0.15 and 0.85 on the
+      // diagonal), so the whole pass is spent on dots instead of empty canvas.
       let band = -1;
       if (!fine && !reduceMotion) {
-        const phase = (t % 4.2) / 1.4;
-        if (phase < 1) band = -0.15 + 1.3 * phase;
+        const phase = (t % GLINT_EVERY) / GLINT_PASS;
+        if (phase < 1) band = 0.08 + (0.8 + GLINT_TAIL) * phase;
       }
 
       const s = Math.min(W, H) * 0.34;
@@ -206,9 +232,10 @@
           }
           let hk = Math.max(heat[k] * decay, f);
           heat[k] = hk;
-          // the band is not stored as heat, so it passes as a narrow glint with no trail
+          // the band is not stored as heat: a crisp leading edge, then a tail that fades behind it
           if (band >= 0) {
-            let b = 1 - Math.abs((px / W + py / H) / 2 - band) / 0.06;
+            const d = (px / W + py / H) / 2 - band;
+            let b = d > 0 ? 1 - d / GLINT_LEAD : 1 + d / GLINT_TAIL;
             if (b > 0) { b = b * b * (3 - 2 * b); if (b > hk) hk = b; }
           }
 
@@ -223,7 +250,7 @@
         const z = q[2];
         const mix = q[3];
         const g = Math.min(1, Math.max(0, (z + 1.3) / 2.6));
-        const sz = cell * (0.45 + 0.6 * g) * (1 + 0.35 * mix);
+        const sz = cell * (0.45 + 0.6 * g) * (1 + SWELL * mix);
         const m = (toneLo + (toneHi - toneLo) * g) * 255;
         if (mix < 0.01) {
           ctx.fillStyle = `rgb(${m | 0},${m | 0},${m | 0})`;

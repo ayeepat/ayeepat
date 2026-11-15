@@ -131,7 +131,8 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: space-between;
   padding: 22px var(--gutter);
-  transition: background-color 0.4s var(--ease), border-color 0.4s var(--ease), padding 0.4s var(--ease);
+  transition: background-color 0.4s var(--ease), border-color 0.4s var(--ease), padding 0.4s var(--ease),
+    opacity 0.9s var(--ease) 0.75s, transform 0.9s var(--ease) 0.75s;
   border-bottom: 1px solid transparent;
 }
 .nav.scrolled {
@@ -178,7 +179,9 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(64px, 17.5vw, 250px);
   margin-left: -0.03em;
   overflow: hidden;
-  padding-bottom: 0.06em;
+  /* room for the descender row of the y and p; the margin keeps the layout below where it was */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.08em;
 }
 
 /* split letters rise in on load */
@@ -193,6 +196,19 @@ a { color: inherit; text-decoration: none; }
 }
 @keyframes rise {
   to { transform: translateY(0); }
+}
+
+/* hover: the square pixels of a letter soften into round dots, then cool back slowly,
+   the same way the artwork dots do behind the cursor */
+.hero-title .ch {
+  font-variation-settings: "ROND" 0;
+  transition: font-variation-settings 1.2s var(--ease);
+}
+@media (hover: hover) {
+  .hero-title .ch:hover {
+    font-variation-settings: "ROND" 100;
+    transition-duration: 0.25s;
+  }
 }
 
 .hero-grid {
@@ -266,7 +282,16 @@ a { color: inherit; text-decoration: none; }
   gap: var(--s-3) var(--s-5);
   margin-bottom: var(--s-6);
   padding-top: var(--s-6);
-  border-top: 1px solid var(--line-strong);
+  position: relative;
+}
+/* the rule is its own element so it can draw in from the left */
+.section-head::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: var(--line-strong);
+  transform-origin: 0 50%;
 }
 .section-head .h2 { padding-top: 0; }
 
@@ -442,6 +467,69 @@ a { color: inherit; text-decoration: none; }
   transform: none;
 }
 
+/* ---------- staged motion (only when JS is running) ---------- */
+/* load: the title letters rise first, then the lede, the artwork and the nav settle in */
+.js .hero .lede { --d: 4; }
+.js .hero .art-hero { --d: 6; }
+.js .nav { opacity: 0; transform: translateY(-10px); }
+.js .ready .nav { opacity: 1; transform: none; }
+
+/* section heads: the rule draws across, then the title rises under it */
+.js .section-head.reveal { opacity: 1; transform: none; }
+.js .section-head::before {
+  transform: scaleX(0);
+  transition: transform 1.3s var(--ease);
+}
+.js .section-head.in::before { transform: scaleX(1); }
+.js .section-head .h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s var(--ease) 0.2s, transform 0.9s var(--ease) 0.2s;
+}
+.js .section-head.in .h2 { opacity: 1; transform: none; }
+
+/* project: the screenshot is uncovered top to bottom while it settles, the text follows line by line */
+.js .project.reveal { opacity: 1; transform: none; }
+.js .project .project-media {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.3s var(--ease);
+}
+.js .project.in .project-media { clip-path: inset(0); }
+.js .project:not(.in) .project-media img { transform: scale(1.1); }
+.project-body > :nth-child(2) { --i: 1; }
+.project-body > :nth-child(3) { --i: 2; }
+.project-body > :nth-child(4) { --i: 3; }
+.js .project .project-body > * {
+  --delay: calc(var(--i, 0) * 90ms + 300ms);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s var(--ease) var(--delay), transform 0.9s var(--ease) var(--delay),
+    background-size 0.5s var(--ease);
+}
+.js .project.in .project-body > * { opacity: 1; transform: none; }
+
+/* capabilities: each cell rises on its own, staggered within a row (--i is set in script.js) */
+.js .caps { opacity: 0; transition: opacity 0.8s var(--ease); }
+.js .caps.in { opacity: 1; }
+.js .cap {
+  --delay: calc(var(--i, 0) * 90ms);
+  opacity: 0;
+  transform: translateY(22px);
+  transition: color 0.25s var(--ease), opacity 0.9s var(--ease) var(--delay), transform 0.9s var(--ease) var(--delay);
+}
+.js .cap.in { opacity: 1; transform: none; }
+
+/* contact: the icons step in after the heading */
+.contact-icons li:nth-child(2) { --i: 1; }
+.contact-icons li:nth-child(3) { --i: 2; }
+.js .contact-icons li {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transition-delay: calc(var(--i, 0) * 90ms + 250ms);
+}
+.js .contact-row.in .contact-icons li { opacity: 1; transform: none; }
+
 /* ---------- responsive ---------- */
 @media (max-width: 920px) {
   .hero-grid,
@@ -465,7 +553,8 @@ a { color: inherit; text-decoration: none; }
   .section { padding: var(--s-6) 0; }
   .section-contact { padding: 96px 0; }
   .btn { width: 100%; justify-content: center; }
-  
+}
+
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -478,5 +567,14 @@ a { color: inherit; text-decoration: none; }
     transition-delay: 0ms !important;
   }
   .ch { transform: none; }
-  .js .reveal { opacity: 1; transform: none; }
+  .js .reveal,
+  .js .nav,
+  .js .caps,
+  .js .cap,
+  .js .section-head .h2,
+  .js .section-head::before,
+  .js .project .project-body > *,
+  .js .project .project-media img,
+  .js .contact-icons li { opacity: 1; transform: none; }
+  .js .project .project-media { clip-path: none; }
 }
