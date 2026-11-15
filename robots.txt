@@ -1,4 +1,4 @@
-# ayeepat: AI × Design
+# ayeepat
 # All crawlers welcome, including AI crawlers.
 
 User-agent: *
@@ -27,5 +27,3 @@ Allow: /
 
 Sitemap: https://ayeepat.com/sitemap.xml
 
-# AI-readable site summary: https://ayeepat.com/llms.txt
-# Full AI-readable profile:  https://ayeepat.com/llms-full.txt

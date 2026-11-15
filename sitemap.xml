@@ -1,24 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://ayeepat.com/</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://ayeepat.com/simplexcapnewsite.webp</image:loc>
-      <image:title>Simplex Capital website by ayeepat</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://ayeepat.com/motion</loc>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://ayeepat.com/ayeepatmotiondesign-poster.jpg</image:loc>
-      <image:title>Ayeepat motion design reel</image:title>
-    </image:image>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ayeepat.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
 </urlset>
